@@ -46,17 +46,21 @@ Module.register("MMM-Signal", {
             console.log(tempsignalfarve)
 
         }
-        loadVandTemp();
+        function myloop() {
+            setTimeout(myloop, 600000) //opdatering af grafen i milli-sekunder
+            loadVandTemp();
 
-        function draw() {
-
-            var canvas = document.getElementById('canvas');
-            var res = canvas.getContext('2d');
-            res.beginPath();
-            res.arc(100, 75, 50, 0, 2 * Math.PI);
-            res.fillStyle = tempsignalfarve;
-            res.fill();
+            function draw() {
+                var canvas = document.getElementById('canvas');
+                var res = canvas.getContext('2d');
+                res.beginPath();
+                res.arc(100, 75, 50, 0, 2 * Math.PI);
+                res.fillStyle = tempsignalfarve;
+                res.fill();
+            }
+            window.onload = draw
         }
-        window.onload = draw
+        myloop()
+        return signalLys;
     }
 });
