@@ -1,5 +1,5 @@
-//MMM-ESP.js:
-Module.register("MMM-ESP", {
+//MMM-Signal.js:
+Module.register("MMM-Signal", {
     // Default module config.
     defaults: {
         firsttext: "there should be some data around here",
