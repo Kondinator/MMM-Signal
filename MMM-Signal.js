@@ -47,7 +47,7 @@ Module.register("MMM-Signal", {
 
         }
         function myloop() {
-            setTimeout(myloop, 600000) //opdatering af grafen i milli-sekunder
+            setTimeout(myloop, 20000) //opdatering af grafen i milli-sekunder
             loadVandTemp();
 
             function draw() {
