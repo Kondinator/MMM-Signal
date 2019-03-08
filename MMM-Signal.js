@@ -6,10 +6,11 @@ Module.register("MMM-Signal", {
     },
 
     getDom: function () {
-        var signalLys = document.createElement('canvas');
+        var signalLys = document.createElement('myCanvas');
+        var res = signalLys.getContext('2d');
         signalLys.setAttribute("id", "canvas");
-        signalLys.style.width = '50%';
-        signalLys.style.height = '50%';
+        signalLys.style.width = '100%';
+        signalLys.style.height = '100%';
         document.body.appendChild(signalLys);
 
         var tempsignalfarve;
@@ -51,8 +52,7 @@ Module.register("MMM-Signal", {
             loadVandTemp();
 
             function draw() {
-                var canvas = document.getElementById('canvas');
-                var res = canvas.getContext('2d');
+
                 res.beginPath();
                 res.arc(100, 75, 50, 0, 2 * Math.PI);
                 res.fillStyle = tempsignalfarve;
