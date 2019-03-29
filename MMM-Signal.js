@@ -15,7 +15,6 @@ Module.register("MMM-Signal", {
         var tempsignalfarve = 'blue'
         var senesteTempSkift;
 
-
         function addZero(i) {
             if (i < 10) {
                 i = "0" + i;
@@ -27,9 +26,7 @@ Module.register("MMM-Signal", {
             var now = new Date();
             var m = addZero(now.getMinutes());
             var h = addZero(now.getHours());
-            var t = "" + h + ":" + m;
-            return senesteTempSkift = String(t);
-
+            return senesteTempSkift = String("" + h + ":" + m);
 
         }
 
@@ -52,7 +49,7 @@ Module.register("MMM-Signal", {
 
                         }
                         tempsignalfarve = 'green'
-
+                        
                     }
 
                     if (vandTempTal < 20 && vandTempTal > 10.1) {
@@ -61,6 +58,7 @@ Module.register("MMM-Signal", {
                             logTime()
                         }
                         tempsignalfarve = 'yellow'
+                        
                     }
 
                     if (vandTempTal < 10 && vandTempTal > 0) {
@@ -69,8 +67,8 @@ Module.register("MMM-Signal", {
                             logTime()
                         }
                         tempsignalfarve = 'red'
+                        
                     }
-
 
                 }
 
@@ -86,9 +84,11 @@ Module.register("MMM-Signal", {
             loadVandTemp();
 
             function draw() {
+                
                 var canvas = document.getElementById('myCanvas');
                 var res = canvas.getContext('2d');
                 res.beginPath();
+                res.clearRect(0, 0, canvas.width, canvas.height);
                 res.arc(100, 75, 50, 0, 2 * Math.PI);
                 res.fillStyle = tempsignalfarve;
                 res.fill();
@@ -101,5 +101,7 @@ Module.register("MMM-Signal", {
         }
         myloop()
         return signalLys;
+
     }
+
 });
